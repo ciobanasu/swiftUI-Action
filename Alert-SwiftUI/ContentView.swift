@@ -39,7 +39,10 @@ struct ContentView: View {
         }).actionSheet(isPresented: $isError, content: {
             ActionSheet(title: Text("Download"),
                         message: Text("Do you want to download photos?"),
-                        buttons: [.default(Text("Download")), .cancel()])
+                        buttons: [.default(Text("Download")),
+                                  .destructive(Text("Cancel"), action: {
+                                    print("This is was canceled")
+                                  })])
         })
     }
 }
